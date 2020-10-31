@@ -1,11 +1,9 @@
 import matplotlib.pyplot as plt
 
 """ The Car class defines a car's movement and keeps track of its state.
-
     The class includes init, move, and display functions.
     This class assumes a constant velocity motion model and the state
     of the car includes the car's position, and it's velocity.
-
     Attributes:
         state: A list of the car's current position [y, x] and velocity [vy, vx]
         world: The world that the car is moving within (a 2D list)
@@ -16,7 +14,7 @@ class Car(object):
     
     # Car constructor 
     # Called when you write car.Car(_, _, _)
-    def __init__(self, position, velocity, world):
+    def __init__(self, position, velocity, world, color = 'r'):
         """Initializes Car with some position, velocity, and a world to traverse."""
         
         # Initialize the state
@@ -25,7 +23,7 @@ class Car(object):
         self.world = world # world is a 2D list of values that range from 0-1
         
         # Set the default color
-        self.color = 'r'
+        self.color = color
         
         # Initalize the path
         self.path = []
@@ -81,6 +79,14 @@ class Car(object):
         # Update the state velocity
         self.state[1] = predicted_velocity
     
+    def turn_right(self):
+        # Change the velocity
+        velocity = self.state[1]
+        
+        predicted_velocity = [velocity[1], -velocity[0]]
+        
+        # Update the state velocity
+        self.state[1] = predicted_velocity
     
     # Helper function for displaying the world + robot position
     # Assumes the world in a 2D numpy array and position is in the form [y, x]
@@ -117,4 +123,3 @@ class Car(object):
 
         # Display final result
         plt.show()
-
