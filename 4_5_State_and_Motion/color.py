@@ -31,4 +31,16 @@ class Color(object):
         
         return string
     
+    ## Adds two colors together
+    def __add__(self, other):
+        '''Adds the r, g, and b components of each color together 
+           and averaging them. 
+           The new Color object, with these averaged rgb values, 
+           is returned.'''
+        new_r = (self.r + other.r) / 2
+        new_g = (self.g + other.g) / 2
+        new_b = (self.b + other.b) / 2
+
+        return Color(new_r, new_g, new_b)
+    
     
