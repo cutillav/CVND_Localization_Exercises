@@ -14,6 +14,8 @@ class Color(object):
     def __init__(self, r, g, b):
         # Setting the r value
         self.r = r
+        self.g = g
+        self.b = b
         
         ## TODO: Set the other two color variables g and b
         
@@ -24,11 +26,8 @@ class Color(object):
         '''Display a color swatch and then return a text description of r,g,b values.'''
         
         plt.imshow([[(self.r/255, self.g/255, self.b/255)]])
-        
-        ## TODO: Write a string representation for the color
-        ## ex. "rgb = [self.r, self.g, self.b]"
-        ## Right now this returns an empty string
-        string = ''
+
+        string = f'rgb = [{self.r}, {self.g}, {self.b}]'
         
         return string
     
